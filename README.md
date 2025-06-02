@@ -4,6 +4,8 @@
 
 ### Video Script
 
+https://github.com/user-attachments/assets/4e144e53-d9cc-4892-b54e-6fb2d8c2ab73
+
 This outputs a video file with the left camera, right camera, and LiDAR data visualized side by side. It also outputs the first frame, if only the first frame is needed and not the video, then the `--first-frame` flag can be used. The `--no-color` flag can be used to disable colorization of the point cloud based on distance from the LiDAR.
 
 Usage:
