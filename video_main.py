@@ -75,7 +75,6 @@ def create_pcd_frame(
     vis.create_window(width=size[0], height=size[1], visible=False, left=0, top=0)
     vis.get_render_option().show_coordinate_frame = True
     vis.get_render_option().background_color = np.array([0.5, 0.5, 0.5])
-    vis.add_geometry(o3d.geometry.TriangleMesh.create_coordinate_frame(size=0.5))
     vis.add_geometry(pcd)
 
     ctr = vis.get_view_control().convert_to_pinhole_camera_parameters()
