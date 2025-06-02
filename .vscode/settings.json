@@ -1,0 +1,6 @@
+{
+    "editor.unusualLineTerminators": "off",
+    "[python]": {
+        "editor.formatOnSave": true,
+    }
+}
