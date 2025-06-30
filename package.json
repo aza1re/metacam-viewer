@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "electron": "^36.5.0",
+    "electron-builder": "^26.0.12"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "electron": "electron ."
+  }
+}

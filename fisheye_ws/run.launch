@@ -1,0 +1,13 @@
+<launch>
+    
+
+    <include file="$(find fast_lio)/launch/edu.launch" />
+
+    <include file="$(find data_preprocessing)/launch/data_preprocessing.launch" />
+
+    <include file="$(find lidar_add_rgb)/launch/lidar_add_rgb_fast_lio2.launch" />
+
+
+
+</launch>
+

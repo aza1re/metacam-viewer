@@ -1,0 +1,9 @@
+<launch>
+
+
+    <rosparam command="load" file="$(find lidar_add_rgb)/config/lvi_sam.yaml" />
+
+    <node pkg="lidar_add_rgb" type="lidar_add_rgb" name="lidar_add_rgb" output="screen" /> 
+
+
+</launch>

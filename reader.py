@@ -224,7 +224,11 @@ class MetaCamEduReader:
             path (Path | str): The path to the output of MetaCam EDU.
         """
         self.path = Path(path)
-        self.rosbag_reader = AnyReader([self.path / "data" / "data_0.bag"])
+        # Collect all .bag files in the data directory, sorted for order
+        bag_files = sorted((self.path / "data").glob("*.bag"))
+        if not bag_files:
+            raise FileNotFoundError(f"No .bag files found in {self.path / 'data'}")
+        self.rosbag_reader = AnyReader(bag_files)
         with open(self.path / "info" / "calibration.json", "r") as f:
             self.calib = Calibration.from_dict(json.load(f))
         self.preview_pcd = o3d.io.read_point_cloud(self.path / "Preview.pcd")
