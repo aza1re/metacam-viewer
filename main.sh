@@ -44,7 +44,7 @@ echo "==> Waiting for ROS master to start..."
 until rostopic list >/dev/null 2>&1; do
     sleep 1
 done
-
+~
 echo "==> Playing bag file: $BAG_FILE"
 rosbag play "$BAG_FILE"
 
