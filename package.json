@@ -1,10 +1,14 @@
 {
+  "main": "frontend/main.js",
   "devDependencies": {
+    "concurrently": "^9.2.0",
     "electron": "^36.5.0",
-    "electron-builder": "^26.0.12"
+    "electron-builder": "^26.0.12",
+    "wait-on": "^8.0.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "electron": "electron ."
+    "start": "concurrently \"npm run start-react\" \"npm run start-electron\"",
+    "start-react": "cd frontend && npm start",
+    "start-electron": "wait-on http://localhost:3000 && electron ."
   }
 }

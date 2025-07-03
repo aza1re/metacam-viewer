@@ -149,7 +149,7 @@ void undistortImageCallback_0(const sensor_msgs::Image::ConstPtr& msg)
     }
 
     // 保存图片
-    std::string img_dir = "/home/user/metacam-edu-reader/fisheye_ws/output/images/camera0";
+    std::string img_dir = "/home/user/metacam-edu-reader/output/images/camera0";
     if (!dir_created) {
         system(("mkdir -p " + img_dir).c_str());
         dir_created = true;
@@ -160,7 +160,7 @@ void undistortImageCallback_0(const sensor_msgs::Image::ConstPtr& msg)
     cv::imwrite(img_name, cv_ptr->image);
 
     // ==== 保存相机0在世界系下的外参 ====
-    std::string extr_dir = "/home/user/metacam-edu-reader/fisheye_ws/output/extrinsics0";
+    std::string extr_dir = "/home/user/metacam-edu-reader/output/extrinsics0";
     std::string yaml_name = extr_dir + "/" + buf + ".yaml";
     system(("mkdir -p " + extr_dir).c_str());
 
@@ -196,7 +196,7 @@ void undistortImageCallback_1(const sensor_msgs::Image::ConstPtr& msg)
     }
 
     // 保存图片
-    std::string img_dir = "/home/user/metacam-edu-reader/fisheye_ws/output/images/camera1";
+    std::string img_dir = "/home/user/metacam-edu-reader/output/images/camera1";
     if (!dir_created) {
         system(("mkdir -p " + img_dir).c_str());
         dir_created = true;
@@ -207,7 +207,7 @@ void undistortImageCallback_1(const sensor_msgs::Image::ConstPtr& msg)
     cv::imwrite(img_name, cv_ptr->image);
 
     // ==== 保存相机1在世界系下的外参 ====
-    std::string extr_dir = "/home/user/metacam-edu-reader/fisheye_ws/output/extrinsics1";
+    std::string extr_dir = "/home/user/metacam-edu-reader/output/extrinsics1";
     std::string yaml_name = extr_dir + "/" + buf + ".yaml";
     system(("mkdir -p " + extr_dir).c_str());
 
@@ -283,7 +283,7 @@ pcl::PointCloud<pcl::PointXYZRGB>::Ptr merged_cloud(new pcl::PointCloud<pcl::Poi
 int main(int argc, char* argv[]) {
 
     ros::init(argc, argv, "lidar_add_rgb");
-    ros::NodeHandle nh;    
+    ros::NodeHandle nh;
     nh.param<std::string>("topic_lidar_in", topic_lidar_in, "");
     nh.param<std::string>("topic_odom_in", topic_odom_in, "");        
     nh.param<std::string>("topic_lidar_out", topic_lidar_out, "");        
@@ -609,7 +609,7 @@ int main(int argc, char* argv[]) {
 
             // 每累计10帧，保存一次合并点云
             if(saved_rgb_count < save_count && rgb_frame_counter == rgb_save_interval) {
-                std::string filename = "/home/user/metacam-edu-reader/fisheye_ws/output/pointcloud/cloud_group_" + std::to_string(saved_rgb_count) + ".pcd";
+                std::string filename = "/home/user/metacam-edu-reader/output/pointcloud/cloud_group_" + std::to_string(saved_rgb_count) + ".pcd";
                 pcl::io::savePCDFileBinary(filename, *merged_cloud);
                 saved_rgb_count++;
                 rgb_frame_counter = 0;
